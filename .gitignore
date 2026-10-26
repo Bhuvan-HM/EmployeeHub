@@ -1,0 +1,12 @@
+
+node_modules/
+.env
+.env.*
+!.env.example
+employees.db
+employees.db-shm
+employees.db-wal
+employees-backup*.db
+*.sqlite
+*.sqlite3
+.DS_Store
