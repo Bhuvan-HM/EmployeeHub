@@ -722,7 +722,130 @@
         display: none;
       }
     }
-  </style>
+  
+/* EmployeeHub 4.0 visual refinement */
+:root{scroll-behavior:smooth}
+body{letter-spacing:-.01em}
+.sidebar{box-shadow:8px 0 28px rgba(15,23,42,.08);overflow-y:auto}
+.brand{padding-bottom:26px}
+.nav-link{transition:background .18s ease,transform .18s ease}
+.nav-link:hover{transform:translateX(2px)}
+.sidebar-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:18px}
+.workspace-links{display:grid;gap:7px;margin:18px 0 16px}
+.workspace-links a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;color:#cbd5e1;text-decoration:none;font-size:13px;font-weight:600;transition:.18s}
+.workspace-links a:hover,.workspace-links a.current{background:#263958;color:#fff}
+.workspace-links .group-label{padding:8px 12px 2px;color:#91a2c2;font-size:10px;font-weight:800;letter-spacing:1.3px}
+.topbar,.top{position:sticky;top:0;z-index:4;backdrop-filter:blur(14px);box-shadow:0 3px 14px rgba(15,23,42,.035)}
+.topbar-right a,.topright a{border-radius:9px;padding:9px 12px;background:#eff4ff;text-decoration:none;font-weight:700}
+.page,.content{max-width:1600px}
+.page{padding-top:30px}
+.page-heading h1,h1{letter-spacing:-.8px}
+.stat-card,.stat,.card,.panel{box-shadow:0 5px 18px rgba(15,23,42,.035);transition:transform .18s ease,box-shadow .18s ease}
+.stat-card:hover,.stat:hover,.card:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(15,23,42,.075)}
+.panel,.card,.stat,.stat-card{border-radius:16px}
+button,.btn{transition:filter .15s ease,transform .15s ease}
+button:hover,.btn:hover{filter:brightness(.98)}
+input,select,textarea{transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#6b91ef!important;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+table{border-collapse:separate;border-spacing:0}
+th{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#64748b}
+td,th{padding:13px 14px}
+tbody tr:hover{background:#f8faff}
+@media(max-width:900px){.sidebar{position:relative;box-shadow:none}.workspace-links{grid-template-columns:repeat(3,minmax(0,1fr))}.workspace-links .group-label{grid-column:1/-1}.topbar,.top{position:relative}}
+@media(max-width:560px){.workspace-links{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar-right{gap:5px;flex-wrap:wrap}.page{padding:18px 13px}.page-heading h1,h1{font-size:24px}}
+
+
+/* EmployeeHub Professional UI refinement */
+:root{--surface:#fff;--surface-soft:#f8faff;--line-soft:#e7edf5;--shadow-soft:0 8px 26px rgba(20,33,61,.055)}
+html{scroll-behavior:smooth}
+body{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility }
+.sidebar,.side{box-shadow:8px 0 28px rgba(15,23,42,.07)}
+.brand-name,.brand{letter-spacing:-.45px}
+.nav-link,.nav button{transition:background .18s ease,color .18s ease,transform .18s ease}
+.nav-link:hover,.nav button:hover{transform:translateX(2px)}
+.main{min-width:0}
+.topbar,.top{background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft);box-shadow:0 3px 16px rgba(15,23,42,.025)}
+.breadcrumb,.crumb{font-weight:500}
+.page,.content,.main{min-width:0}
+.page-heading,.heading{gap:16px}
+.page-heading h1,.heading h1,h1{font-weight:760;letter-spacing:-.8px}
+.page-heading p,.heading p,.desc{line-height:1.55}
+.stat-card,.stat,.card,.panel{border:1px solid var(--line-soft);box-shadow:var(--shadow-soft);border-radius:15px}
+.stat-card,.stat,.card{transition:transform .18s ease,box-shadow .18s ease}
+.stat-card:hover,.stat:hover,.card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(20,33,61,.09)}
+.panel{overflow:hidden}
+.panel-header{border-bottom:1px solid #edf1f6}
+input,select,textarea{border-color:#d9e1ec!important;border-radius:9px!important}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#7b9cf0!important;box-shadow:0 0 0 3px rgba(37,99,235,.12)!important}
+button,.btn{border-radius:9px;transition:filter .15s ease,transform .15s ease,box-shadow .15s ease}
+button:hover,.btn:hover{filter:brightness(.985)}
+.btn-primary,.btn:not(.secondary):not(.danger):not(.light):not(.red){box-shadow:0 3px 8px rgba(37,99,235,.12)}
+table{border-collapse:separate;border-spacing:0}
+thead th{color:#64748b;font-size:11px;letter-spacing:.075em;text-transform:uppercase;background:#f8faff}
+tbody tr:hover{background:#f8faff}
+.badge,.pill{font-weight:650}
+.empty,.empty-state{border:1px dashed #dce4ef;border-radius:12px;background:#fbfcfe}
+.workspace-links a{transition:background .18s ease,color .18s ease}
+@media(max-width:900px){.sidebar,.side{box-shadow:none}.topbar,.top{position:relative}}
+@media(max-width:650px){.content,.page{padding:18px 14px}.top{padding:14px 16px;flex-wrap:wrap}.grid,.cards,.stats,.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.formgrid,.form-grid{grid-template-columns:1fr}}
+@media(max-width:430px){.grid,.cards,.stats,.stats-grid{grid-template-columns:1fr}.heading{flex-direction:column}}
+
+
+/* EmployeeHub enterprise home experience — static sky-blue/white theme */
+:root{--navy:#173b63;--blue:#1687cf;--blue-hover:#0875bb;--bg:#f4f8fc;--white:#fff;--text:#18324b;--muted:#698096;--border:#dce8f2;--green:#16845b;--red:#c2415d}
+body{background:#f4f7fb;color:#18324b}
+.sidebar{background:#153b63}
+.main{background:#f4f7fb}
+.topbar{background:#fff;border-bottom:1px solid #e3edf5;box-shadow:0 2px 8px rgba(28,70,105,.035)}
+.page{max-width:1600px}
+.enterprise-home{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:22px;align-items:start}
+.home-main{min-width:0}
+.home-hero{min-height:176px;border-radius:18px;padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#fff;background:linear-gradient(105deg,#147fbd 0%,#2e9ed2 48%,#79c9e8 100%);box-shadow:0 8px 22px rgba(30,126,180,.13);margin-bottom:26px;overflow:hidden;position:relative}
+.home-hero:after{content:"";position:absolute;width:270px;height:270px;border:1px solid rgba(255,255,255,.18);border-radius:50%;right:8%;top:-115px;box-shadow:0 0 0 28px rgba(255,255,255,.045),0 0 0 58px rgba(255,255,255,.035)}
+.home-hero h1{font-size:30px;line-height:1.2;margin:0 0 9px;font-weight:750;letter-spacing:-.6px;color:#fff}
+.home-hero p{margin:0;color:#eaf7ff;font-size:14px}
+.hero-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:750;color:#d7f1ff;margin-bottom:10px}
+.hero-mark{font-size:64px;opacity:.9;margin-right:42px;z-index:1}
+.quick-section{margin:0 0 28px}
+.quick-section h2,.approval-section h2{font-size:19px;margin:0 0 14px;color:#1d3d5b;font-weight:750}
+.quick-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.quick-tile{min-height:108px;border:0;border-radius:13px;padding:15px 9px 13px;color:#fff;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;box-shadow:0 4px 10px rgba(22,62,100,.09);transition:transform .15s ease,box-shadow .15s ease}
+.quick-tile:hover{transform:translateY(-2px);box-shadow:0 8px 17px rgba(22,62,100,.15);filter:brightness(1.035)}
+.quick-tile .tile-icon{font-size:28px;line-height:1;font-weight:600}
+.quick-tile .tile-label{font-size:11px;line-height:1.25;font-weight:700;max-width:120px}
+.tile-blue{background:#2463c7}.tile-pink{background:#c52d70}.tile-teal{background:#138c91}.tile-purple{background:#7650c9}.tile-slate{background:#50677f}.tile-sky{background:#1689c9}
+.approval-section{margin-bottom:24px}
+.approval-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.approval-card{background:#fff;border:1px solid #e2ebf3;border-radius:13px;padding:17px 18px;box-shadow:0 3px 10px rgba(25,61,94,.035)}
+.approval-card h3{margin:0 0 7px;font-size:14px;color:#1d3d5b}
+.approval-card p{margin:0 0 13px;color:#6c8194;font-size:12px;line-height:1.5}
+.approval-card a{font-size:12px;color:#167fc1;text-decoration:none;font-weight:750}
+.approval-card a:hover{text-decoration:underline}
+.ai-dock{background:#fff;border:1px solid #dce8f3;border-radius:17px;box-shadow:0 8px 26px rgba(25,67,104,.11);overflow:hidden;position:sticky;top:88px}
+.ai-head{background:linear-gradient(145deg,#167fc4,#2563b8);color:#fff;padding:17px 18px}
+.ai-head-row{display:flex;align-items:center;justify-content:space-between;font-weight:750;font-size:14px}
+.ai-orb{width:62px;height:62px;border-radius:20px;background:rgba(255,255,255,.17);display:grid;place-items:center;font-size:32px;margin:24px auto 17px;border:1px solid rgba(255,255,255,.25)}
+.ai-greeting{font-size:12px;color:#dff3ff;margin:0 0 5px}
+.ai-head h2{font-size:21px;line-height:1.25;margin:0;color:#fff}
+.ai-head .ai-hint{font-size:11px;line-height:1.4;color:#e4f4ff;margin:11px 0 0}
+.ai-body{padding:15px}
+.ai-body-label{font-size:11px;font-weight:750;color:#60788e;margin-bottom:10px}
+.ai-suggestions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px}
+.ai-suggestion{border:1px solid #dce9f4;background:#f5faff;border-radius:8px;padding:8px 9px;font-size:10px;color:#315c7e;text-align:left;cursor:pointer;min-height:38px}
+.ai-suggestion:hover{background:#eaf5ff;border-color:#9bc9e8}
+.ai-form{display:flex;gap:7px;align-items:center}
+.ai-form input{min-width:0;flex:1;border:1px solid #cbddea;border-radius:9px;padding:11px 10px;font-size:12px;outline:none}
+.ai-form input:focus{border-color:#1689c9;box-shadow:0 0 0 3px rgba(22,137,201,.1)}
+.ai-form button{border:0;border-radius:9px;background:#167fc4;color:#fff;width:38px;height:38px;font-size:17px}
+.ai-answer{display:none;white-space:pre-wrap;max-height:220px;overflow:auto;background:#f4f9fd;border:1px solid #e1edf6;border-radius:9px;padding:11px;margin-top:12px;font-size:12px;line-height:1.55;color:#294a66}
+.ai-foot{font-size:10px;color:#8498aa;margin:11px 0 0;line-height:1.45}
+.home-lower{margin-top:25px}
+.home-lower .stats-grid{margin-bottom:20px}
+@media(max-width:1200px){.quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.enterprise-home{grid-template-columns:minmax(0,1fr) 300px}}
+@media(max-width:900px){.enterprise-home{grid-template-columns:1fr}.ai-dock{position:relative;top:auto;max-width:none}.quick-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.home-hero{padding:23px 20px;min-height:145px}.home-hero h1{font-size:24px}.hero-mark{font-size:42px;margin-right:8px}.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.quick-tile{min-height:96px}.approval-grid{grid-template-columns:1fr}}
+
+</style>
 </head>
 
 <body>
@@ -753,6 +876,13 @@
         <span class="nav-text">Departments</span>
       </button>
 
+      <div class="workspace-links">
+        <div class="group-label">HR WORKSPACES</div>
+        <a href="/hr">▣ &nbsp; HR Workspace</a>
+        <a href="/operations">⚙ &nbsp; HR Operations</a>
+        <a href="/enterprise">▤ &nbsp; Enterprise HRMS</a>
+      </div>
+
       <div class="sidebar-bottom">
         <strong>EmployeeHub</strong><br>
         Employee directory<br>
@@ -767,7 +897,6 @@
         </div>
 
         <div class="topbar-right">
-          <a href="/hr" style="text-decoration:none;background:#eaf1ff;color:#1d4ed8;padding:9px 12px;border-radius:9px;font-size:13px;font-weight:650">HR Workspace</a>
           <span id="signedInUser" class="admin-label" style="font-size:13px;font-weight:600">Signed in</span>
           <button id="logoutButton" type="button" style="border:1px solid #dbe3ef;background:white;color:#334155;padding:9px 12px;border-radius:9px;font-size:13px;font-weight:650">Log out</button>
           <div class="admin-chip">EH</div>
@@ -778,154 +907,93 @@
         <div id="message" class="message" role="status"></div>
 
         <section id="dashboardView" class="section-view">
-          <div class="page-heading">
-            <div>
-              <h1>Dashboard Overview</h1>
-              <p>Welcome back! Here's your employee directory overview.</p>
+          <div class="enterprise-home">
+            <div class="home-main">
+              <section class="home-hero">
+                <div>
+                  <div class="hero-label">EMPLOYEEHUB WORKSPACE</div>
+                  <h1 id="homeGreeting">Good morning!</h1>
+                  <p>Your people, work and HR services — all in one place.</p>
+                </div>
+                <div class="hero-mark" aria-hidden="true">✦</div>
+              </section>
+
+              <section class="quick-section">
+                <h2>Quick Actions</h2>
+                <div class="quick-grid">
+                  <a class="quick-tile tile-blue" href="/people"><span class="tile-icon">▣</span><span class="tile-label">View My Profile</span></a>
+                  <a class="quick-tile tile-pink" href="/hr"><span class="tile-icon">♙</span><span class="tile-label">Manage My Team</span></a>
+                  <a class="quick-tile tile-teal" href="/enterprise"><span class="tile-icon">⚙</span><span class="tile-label">Manage HR Data</span></a>
+                  <a class="quick-tile tile-purple" href="/operations"><span class="tile-icon">◷</span><span class="tile-label">Clock My Time</span></a>
+                  <a class="quick-tile tile-slate" href="/people"><span class="tile-icon">▦</span><span class="tile-label">Request Time Off</span></a>
+                  <a class="quick-tile tile-sky" href="/people"><span class="tile-icon">☏</span><span class="tile-label">Request Support</span></a>
+                  <a class="quick-tile tile-purple" href="/enterprise"><span class="tile-icon">⌘</span><span class="tile-label">View Org Chart</span></a>
+                  <a class="quick-tile tile-slate" href="/operations"><span class="tile-icon">◴</span><span class="tile-label">View Timesheet</span></a>
+                  <a class="quick-tile tile-blue" href="/people"><span class="tile-icon">◎</span><span class="tile-label">Manage My Goals</span></a>
+                  <a class="quick-tile tile-pink" href="/hr"><span class="tile-icon">▧</span><span class="tile-label">Recruitment</span></a>
+                  <a class="quick-tile tile-teal" href="/people"><span class="tile-icon">♧</span><span class="tile-label">Employee Services</span></a>
+                  <a class="quick-tile tile-purple" href="/people"><span class="tile-icon">✧</span><span class="tile-label">AI HR Assistant</span></a>
+                </div>
+              </section>
+
+              <section class="approval-section">
+                <h2>Approvals & Follow-ups</h2>
+                <div class="approval-grid">
+                  <article class="approval-card">
+                    <h3>HR Approvals</h3>
+                    <p>Review leave requests, employee changes and other pending HR actions in your operations workspace.</p>
+                    <a href="/operations">Open HR Operations →</a>
+                  </article>
+                  <article class="approval-card">
+                    <h3>Recruitment & Expenses</h3>
+                    <p>Review candidate progress and expense claims using the relevant HR workspaces.</p>
+                    <a href="/hr">Open HR Workspace →</a>
+                  </article>
+                </div>
+              </section>
+
+              <div class="home-lower">
+                <div class="page-heading">
+                  <div><h1>Workforce Overview</h1><p>Your employee directory at a glance.</p></div>
+                  <button id="dashboardAdd" class="btn btn-primary">+ Add Employee</button>
+                </div>
+                <div class="stats-grid">
+                  <article class="stat-card"><div class="stat-top"><div class="stat-label">Total Employees</div><div class="stat-icon">♙</div></div><div id="totalEmployees" class="stat-number">0</div><div class="stat-note">Employees in your directory</div></article>
+                  <article class="stat-card"><div class="stat-top"><div class="stat-label">Departments</div><div class="stat-icon">▤</div></div><div id="totalDepartments" class="stat-number">0</div><div class="stat-note">Distinct departments</div></article>
+                  <article class="stat-card"><div class="stat-top"><div class="stat-label">Email Records</div><div class="stat-icon">✉</div></div><div id="totalEmails" class="stat-number">0</div><div class="stat-note">Employee email addresses</div></article>
+                </div>
+                <div class="content-grid">
+                  <section class="panel">
+                    <div class="panel-header"><h2>Employee Directory</h2><p>View and manage employee information.</p></div>
+                    <div class="toolbar"><div class="search-wrap"><span class="search-symbol">⌕</span><input id="search" class="input" placeholder="Search name, email, or department..." aria-label="Search employees"></div><select id="departmentFilter" class="select" aria-label="Filter department" style="max-width:180px"><option value="">All departments</option></select></div>
+                    <section id="formBox" class="form-box" hidden><h2 id="formTitle">Add Employee</h2><form id="employeeForm"><div class="form-grid"><div class="field"><label for="name">Full name</label><input id="name" class="input" required maxlength="100" placeholder="Enter employee name"></div><div class="field"><label for="email">Email address</label><input id="email" class="input" type="email" required maxlength="150" placeholder="name@example.com"></div><div class="field"><label for="department">Department</label><input id="department" class="input" required maxlength="100" placeholder="e.g. Engineering"></div></div><div class="form-actions"><button id="saveButton" class="btn btn-primary" type="submit">Save Employee</button><button id="cancelForm" class="btn btn-light" type="button">Cancel</button></div></form></section>
+                    <div class="table-wrap"><table><thead><tr><th>Employee</th><th>Email</th><th>Department</th><th>Actions</th></tr></thead><tbody id="employeeList"><tr><td colspan="4" class="empty-state">Loading employees...</td></tr></tbody></table></div><div id="tableFooter" class="table-footer">Loading employee records...</div>
+                  </section>
+                  <aside class="side-panel"><section class="panel"><div class="panel-header"><h2>Departments</h2><p>Employee distribution by department.</p></div><div id="departmentList" class="department-list"></div></section><section class="panel"><div class="panel-header"><h2>Directory Actions</h2><p>Common employee tasks.</p></div><div class="quick-actions"><button id="quickAdd" class="quick-action"><span class="quick-icon">＋</span><span>Add a new employee</span></button><button id="quickEmployees" class="quick-action"><span class="quick-icon">♙</span><span>View all employees</span></button><button id="exportCsv" class="quick-action"><span class="quick-icon">⇩</span><span>Export employee CSV</span></button></div></section></aside>
+                </div>
+              </div>
             </div>
 
-            <button id="dashboardAdd" class="btn btn-primary">
-              + Add Employee
-            </button>
-          </div>
-
-          <div class="stats-grid">
-            <article class="stat-card">
-              <div class="stat-top">
-                <div class="stat-label">Total Employees</div>
-                <div class="stat-icon">♙</div>
+            <aside class="ai-dock" aria-label="EmployeeHub AI Assistant">
+              <div class="ai-head">
+                <div class="ai-head-row"><span>✦ EmployeeHub AI</span><a href="/people" aria-label="Open AI workspace" style="color:#fff;text-decoration:none">↗</a></div>
+                <div class="ai-orb" aria-hidden="true">✧</div>
+                <p class="ai-greeting">Hello! I'm your HR assistant.</p>
+                <h2>How can I help you?</h2>
+                <p class="ai-hint">Ask naturally about your HR workspace, people and pending work.</p>
               </div>
-              <div id="totalEmployees" class="stat-number">0</div>
-              <div class="stat-note">Employees in your directory</div>
-            </article>
-
-            <article class="stat-card">
-              <div class="stat-top">
-                <div class="stat-label">Departments</div>
-                <div class="stat-icon">▤</div>
-              </div>
-              <div id="totalDepartments" class="stat-number">0</div>
-              <div class="stat-note">Distinct departments</div>
-            </article>
-
-            <article class="stat-card">
-              <div class="stat-top">
-                <div class="stat-label">Email Records</div>
-                <div class="stat-icon">✉</div>
-              </div>
-              <div id="totalEmails" class="stat-number">0</div>
-              <div class="stat-note">Employee email addresses</div>
-            </article>
-          </div>
-
-          <div class="content-grid">
-            <section class="panel">
-              <div class="panel-header">
-                <h2>Employee Directory</h2>
-                <p>View and manage employee information.</p>
-              </div>
-
-              <div class="toolbar">
-                <div class="search-wrap">
-                  <span class="search-symbol">⌕</span>
-                  <input id="search" class="input"
-                    placeholder="Search name, email, or department..."
-                    aria-label="Search employees">
+              <div class="ai-body">
+                <div class="ai-body-label">GET STARTED WITH AI</div>
+                <div class="ai-suggestions">
+                  <button class="ai-suggestion" type="button" data-question="How many employees are registered in the system?">View employee data</button>
+                  <button class="ai-suggestion" type="button" data-question="Show me pending leave requests.">Pending leave</button>
+                  <button class="ai-suggestion" type="button" data-question="Summarize recruitment status.">Recruitment status</button>
+                  <button class="ai-suggestion" type="button" data-question="What HR tasks need attention?">HR tasks</button>
                 </div>
-
-                <select id="departmentFilter" class="select"
-                  aria-label="Filter department" style="max-width:180px">
-                  <option value="">All departments</option>
-                </select>
+                <form id="homeAiForm" class="ai-form"><input id="homeAiQuestion" name="question" maxlength="500" required placeholder="Ask a question..." aria-label="Ask AI HR assistant"><button type="submit" aria-label="Send question">➤</button></form>
+                <div id="homeAiAnswer" class="ai-answer" role="status"></div>
+                <p class="ai-foot">Answers follow your account permissions. Sensitive HR actions still require an authorized human approval.</p>
               </div>
-
-              <section id="formBox" class="form-box" hidden>
-                <h2 id="formTitle">Add Employee</h2>
-
-                <form id="employeeForm">
-                  <div class="form-grid">
-                    <div class="field">
-                      <label for="name">Full name</label>
-                      <input id="name" class="input" required maxlength="100"
-                        placeholder="Enter employee name">
-                    </div>
-
-                    <div class="field">
-                      <label for="email">Email address</label>
-                      <input id="email" class="input" type="email" required
-                        maxlength="150" placeholder="name@example.com">
-                    </div>
-
-                    <div class="field">
-                      <label for="department">Department</label>
-                      <input id="department" class="input" required
-                        maxlength="100" placeholder="e.g. Engineering">
-                    </div>
-                  </div>
-
-                  <div class="form-actions">
-                    <button id="saveButton" class="btn btn-primary" type="submit">
-                      Save Employee
-                    </button>
-                    <button id="cancelForm" class="btn btn-light" type="button">
-                      Cancel
-                    </button>
-                  </div>
-                </form>
-              </section>
-
-              <div class="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Employee</th>
-                      <th>Email</th>
-                      <th>Department</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="employeeList">
-                    <tr>
-                      <td colspan="4" class="empty-state">Loading employees...</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div id="tableFooter" class="table-footer">
-                Loading employee records...
-              </div>
-            </section>
-
-            <aside class="side-panel">
-              <section class="panel">
-                <div class="panel-header">
-                  <h2>Departments</h2>
-                  <p>Employee distribution by department.</p>
-                </div>
-                <div id="departmentList" class="department-list"></div>
-              </section>
-
-              <section class="panel">
-                <div class="panel-header">
-                  <h2>Quick Actions</h2>
-                  <p>Common employee tasks.</p>
-                </div>
-                <div class="quick-actions">
-                  <button id="quickAdd" class="quick-action">
-                    <span class="quick-icon">＋</span>
-                    <span>Add a new employee</span>
-                  </button>
-                  <button id="quickEmployees" class="quick-action">
-                    <span class="quick-icon">♙</span>
-                    <span>View all employees</span>
-                  </button>
-                  <button id="exportCsv" class="quick-action">
-                    <span class="quick-icon">⇩</span>
-                    <span>Export employee CSV</span>
-                  </button>
-                </div>
-              </section>
             </aside>
           </div>
         </section>
@@ -1001,33 +1069,38 @@
 
     let csrfToken = null;
 
+    async function getCsrfToken(force = false) {
+      if (force) csrfToken = null;
+      if (!csrfToken) {
+        const tokenResponse = await fetch("/api/auth/csrf", { credentials: "same-origin", cache: "no-store" });
+        if (tokenResponse.status === 401) { window.location.replace("/login"); throw new Error("Please sign in again."); }
+        if (!tokenResponse.ok) throw new Error("Could not verify your session. Refresh the page and try again.");
+        csrfToken = (await tokenResponse.json()).csrfToken;
+        if (!csrfToken) throw new Error("Security token unavailable. Refresh the page and try again.");
+      }
+      return csrfToken;
+    }
+
     async function apiRequest(url, options = {}) {
       const method = String(options.method || "GET").toUpperCase();
-      const headers = { ...(options.headers || {}) };
-      if (!["GET", "HEAD", "OPTIONS"].includes(method)) {
-        if (!csrfToken) {
-          const tokenResponse = await fetch("/api/auth/csrf");
-          if (tokenResponse.status === 401) { window.location.replace("/login"); throw new Error("Please sign in again."); }
-          const tokenData = await tokenResponse.json();
-          csrfToken = tokenData.csrfToken;
+      let attempt = 0;
+      while (true) {
+        const headers = { ...(options.headers || {}) };
+        if (!["GET", "HEAD", "OPTIONS"].includes(method)) headers["X-CSRF-Token"] = await getCsrfToken(attempt > 0);
+        const response = await fetch(url, { ...options, method, headers, credentials: "same-origin" });
+        if (response.status === 401) { window.location.replace("/login"); throw new Error("Your session expired. Please sign in again."); }
+        if (response.status === 403 && attempt === 0) {
+          let data = {};
+          try { data = await response.clone().json(); } catch {}
+          if (String(data.error || "").toLowerCase().includes("security token")) { attempt++; continue; }
         }
-        headers["X-CSRF-Token"] = csrfToken;
+        if (!response.ok) {
+          let details = "Request failed (" + response.status + ")";
+          try { const data = await response.json(); if (data.error) details = data.error; } catch {}
+          throw new Error(details);
+        }
+        return response.json();
       }
-      const response = await fetch(url, { ...options, method, headers });
-      if (response.status === 401) { window.location.replace("/login"); throw new Error("Your session expired. Please sign in again."); }
-
-      if (!response.ok) {
-        let details = "Request failed (" + response.status + ")";
-
-        try {
-          const data = await response.json();
-          if (data.error) details = data.error;
-        } catch {}
-
-        throw new Error(details);
-      }
-
-      return response.json();
     }
 
     function getDepartments() {
@@ -1333,6 +1406,32 @@
       } finally {
         saveButton.disabled = false;
       }
+    });
+
+    // Enterprise home greeting and role-filtered AI assistant panel
+    const hourNow = new Date().getHours();
+    const greeting = hourNow < 12 ? "Good morning!" : hourNow < 17 ? "Good afternoon!" : "Good evening!";
+    const greetingNode = document.getElementById("homeGreeting");
+    if (greetingNode) greetingNode.textContent = greeting;
+    const homeAiForm = document.getElementById("homeAiForm");
+    const homeAiQuestion = document.getElementById("homeAiQuestion");
+    const homeAiAnswer = document.getElementById("homeAiAnswer");
+    document.querySelectorAll("[data-question]").forEach(button => button.addEventListener("click", () => { homeAiQuestion.value = button.dataset.question; homeAiQuestion.focus(); }));
+    if (homeAiForm) homeAiForm.addEventListener("submit", async event => {
+      event.preventDefault();
+      const question = homeAiQuestion.value.trim();
+      if (!question) return;
+      homeAiAnswer.style.display = "block";
+      homeAiAnswer.textContent = "Thinking...";
+      try {
+        // Use the shared authenticated API helper so the CSRF token is included.
+        const result = await apiRequest("/api/people/assistant", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question })
+        });
+        homeAiAnswer.textContent = result.answer + "\\n\\n" + (result.disclaimer || "");
+      } catch (error) { homeAiAnswer.textContent = error.message + " Open the AI HR Assistant workspace for more details."; }
     });
 
     document.getElementById("dashboardAdd").addEventListener("click", openAddForm);

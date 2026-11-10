@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Login | Employee Management</title>
+  <title>EmployeeHub | Login</title>
   <style>
     * { box-sizing: border-box; }
 
@@ -19,14 +19,14 @@
       color: #172033;
     }
 
-    .login-card {
+    .card {
       width: 100%;
-      max-width: 410px;
-      padding: 36px;
+      max-width: 420px;
+      padding: 35px;
       background: white;
       border: 1px solid #e2e8f0;
       border-radius: 18px;
-      box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 15px 40px rgba(15, 23, 42, .08);
     }
 
     .logo {
@@ -43,18 +43,18 @@
     }
 
     h1 { margin: 0 0 8px; font-size: 25px; }
-    .subtitle { margin: 0 0 28px; color: #64748b; line-height: 1.5; }
+    .subtitle { color: #64748b; line-height: 1.5; margin-bottom: 25px; }
 
     label {
       display: block;
-      margin: 17px 0 8px;
+      margin: 16px 0 7px;
       font-size: 14px;
       font-weight: 600;
     }
 
     input {
       width: 100%;
-      padding: 12px 13px;
+      padding: 12px;
       border: 1px solid #cbd5e1;
       border-radius: 9px;
       font-size: 15px;
@@ -68,7 +68,7 @@
 
     button {
       width: 100%;
-      margin-top: 24px;
+      margin-top: 20px;
       padding: 13px;
       border: 0;
       border-radius: 9px;
@@ -79,72 +79,330 @@
       cursor: pointer;
     }
 
-    button:disabled { opacity: 0.65; cursor: wait; }
-    #message { min-height: 20px; margin: 15px 0 0; font-size: 14px; color: #dc2626; }
-    .footer { margin-top: 24px; color: #94a3b8; font-size: 12px; text-align: center; }
-  </style>
+    button:disabled { opacity: .6; cursor: wait; }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .link {
+      width: auto;
+      margin: 0;
+      padding: 0;
+      background: none;
+      color: #2563eb;
+      font-size: 13px;
+    }
+
+    .back {
+      margin-top: 18px;
+      background: none;
+      color: #2563eb;
+    }
+
+    .message {
+      min-height: 20px;
+      margin: 15px 0 0;
+      font-size: 14px;
+      color: #dc2626;
+      line-height: 1.5;
+    }
+
+    .success { color: #15803d; }
+    .hidden { display: none; }
+
+    .footer {
+      margin-top: 25px;
+      color: #94a3b8;
+      font-size: 12px;
+      text-align: center;
+    }
+  
+/* EmployeeHub consistent sign-in styling */
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+input,select,textarea{border-radius:9px!important;border-color:#d9e1ec!important}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#7b9cf0!important;box-shadow:0 0 0 3px rgba(37,99,235,.12)!important}
+button,.btn{border-radius:9px;transition:filter .15s ease,transform .15s ease}
+button:hover,.btn:hover{filter:brightness(.985)}
+
+</style>
 </head>
+
 <body>
-  <main class="login-card">
+  <main class="card">
     <div class="logo">E</div>
-    <h1>Welcome back</h1>
-    <p class="subtitle">Sign in to manage your employee records.</p>
 
-    <form id="loginForm">
-      <label for="username">Admin username</label>
-      <input id="username" name="username" autocomplete="username" required>
+    <!-- LOGIN -->
+    <section id="loginSection">
+      <h1>Welcome back</h1>
+      <p class="subtitle">Sign in to manage your employee records.</p>
 
-      <label for="password">Password</label>
-      <input id="password" name="password" type="password"
-             autocomplete="current-password" required>
+      <form id="loginForm">
+        <label for="username">Admin username</label>
+        <input id="username" autocomplete="username" required>
 
-      <button id="loginButton" type="submit">Sign in</button>
-      <p id="message" role="alert" aria-live="polite"></p>
-    </form>
+        <label for="password">Password</label>
+        <input id="password" type="password"
+               autocomplete="current-password" required>
 
-    <div class="footer">Employee Management System</div>
+        <button id="loginButton" type="submit">Sign in</button>
+      </form>
+
+      <p id="loginMessage" class="message" role="status"></p>
+
+      <div class="links">
+        <button class="link" type="button" onclick="showSection('usernameSection')">
+          Forgot Username?
+        </button>
+        <button class="link" type="button" onclick="showSection('forgotSection')">
+          Forgot Password?
+        </button>
+      </div>
+    </section>
+
+    <!-- FORGOT USERNAME -->
+    <section id="usernameSection" class="hidden">
+      <h1>Forgot Username?</h1>
+      <p class="subtitle">
+        Enter your registered email address. We'll send your username if an account matches.
+      </p>
+
+      <form id="usernameForm">
+        <label for="usernameEmail">Registered email</label>
+        <input id="usernameEmail" type="email" required>
+        <button type="submit">Send Username</button>
+      </form>
+
+      <p id="usernameMessage" class="message" role="status"></p>
+      <button class="back" type="button" onclick="showSection('loginSection')">
+        ← Back to Login
+      </button>
+    </section>
+
+    <!-- FORGOT PASSWORD -->
+    <section id="forgotSection" class="hidden">
+      <h1>Forgot Password?</h1>
+      <p class="subtitle">
+        Enter your registered email to receive a 6-digit reset code.
+      </p>
+
+      <form id="forgotForm">
+        <label for="forgotEmail">Registered email</label>
+        <input id="forgotEmail" type="email" required>
+        <button id="sendOtpButton" type="submit">Send OTP</button>
+      </form>
+
+      <p id="forgotMessage" class="message" role="status"></p>
+      <button class="back" type="button" onclick="showSection('loginSection')">
+        ← Back to Login
+      </button>
+    </section>
+
+    <!-- RESET PASSWORD -->
+    <section id="resetSection" class="hidden">
+      <h1>Reset Password</h1>
+      <p class="subtitle">
+        Enter the OTP sent to your registered email and choose a new password.
+      </p>
+
+      <form id="resetForm">
+        <label for="resetEmail">Registered email</label>
+        <input id="resetEmail" type="email" required>
+
+        <label for="otp">6-digit OTP</label>
+        <input id="otp" inputmode="numeric" maxlength="6"
+               pattern="[0-9]{6}" required>
+
+        <label for="newPassword">New password</label>
+        <input id="newPassword" type="password"
+               minlength="12" maxlength="200" required>
+
+        <label for="confirmPassword">Confirm new password</label>
+        <input id="confirmPassword" type="password"
+               minlength="12" maxlength="200" required>
+
+        <button id="resetButton" type="submit">Reset Password</button>
+      </form>
+
+      <p id="resetMessage" class="message" role="status"></p>
+      <button class="back" type="button" onclick="showSection('loginSection')">
+        ← Back to Login
+      </button>
+    </section>
+
+    <div class="footer">EmployeeHub HR Management System</div>
   </main>
 
   <script>
-    const form = document.getElementById("loginForm");
-    const button = document.getElementById("loginButton");
-    const message = document.getElementById("message");
+    const sections = [
+      "loginSection",
+      "usernameSection",
+      "forgotSection",
+      "resetSection"
+    ];
 
+    function showSection(id) {
+      sections.forEach(section => {
+        document.getElementById(section).classList.toggle(
+          "hidden", section !== id
+        );
+      });
+
+      document.querySelectorAll(".message").forEach(el => {
+        el.textContent = "";
+        el.classList.remove("success");
+      });
+    }
+
+    async function postData(url, data) {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Request failed.");
+      }
+
+      return result;
+    }
+
+    // Check existing session
     fetch("/api/auth/me")
       .then(response => {
-        if (response.ok) window.location.replace("/");
+        if (response.ok) {
+          window.location.replace("/");
+        }
       })
       .catch(() => {});
 
-    form.addEventListener("submit", async (event) => {
+    // LOGIN
+    document.getElementById("loginForm").addEventListener("submit", async event => {
       event.preventDefault();
+
+      const button = document.getElementById("loginButton");
+      const message = document.getElementById("loginMessage");
+
       button.disabled = true;
       button.textContent = "Signing in...";
       message.textContent = "";
+      message.classList.remove("success");
 
       try {
-        const response = await fetch("/api/auth/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            username: document.getElementById("username").value.trim(),
-            password: document.getElementById("password").value
-          })
+        await postData("/api/auth/login", {
+          username: document.getElementById("username").value.trim(),
+          password: document.getElementById("password").value
         });
 
-        const result = await response.json();
-
-        if (!response.ok) {
-          message.textContent = result.error || "Unable to sign in.";
-          return;
-        }
-
         window.location.replace("/");
-      } catch {
-        message.textContent = "Cannot connect to the server. Please try again.";
+      } catch (error) {
+        message.textContent = error.message;
       } finally {
         button.disabled = false;
         button.textContent = "Sign in";
+      }
+    });
+
+    // FORGOT USERNAME
+    document.getElementById("usernameForm").addEventListener("submit", async event => {
+      event.preventDefault();
+
+      const message = document.getElementById("usernameMessage");
+      message.textContent = "Sending email...";
+      message.classList.remove("success");
+
+      try {
+        const result = await postData("/api/auth/forgot-username", {
+          email: document.getElementById("usernameEmail").value.trim()
+        });
+
+        message.textContent = result.message;
+        message.classList.add("success");
+      } catch (error) {
+        message.textContent = error.message;
+      }
+    });
+
+    // SEND OTP
+    document.getElementById("forgotForm").addEventListener("submit", async event => {
+      event.preventDefault();
+
+      const email = document.getElementById("forgotEmail").value.trim();
+      const button = document.getElementById("sendOtpButton");
+      const message = document.getElementById("forgotMessage");
+
+      button.disabled = true;
+      button.textContent = "Sending OTP...";
+      message.textContent = "";
+      message.classList.remove("success");
+
+      try {
+        const result = await postData("/api/auth/forgot-password", { email });
+
+        document.getElementById("resetEmail").value = email;
+        showSection("resetSection");
+
+        const resetMessage = document.getElementById("resetMessage");
+        resetMessage.textContent = result.message;
+        resetMessage.classList.add("success");
+      } catch (error) {
+        message.textContent = error.message;
+      } finally {
+        button.disabled = false;
+        button.textContent = "Send OTP";
+      }
+    });
+
+    // RESET PASSWORD
+    document.getElementById("resetForm").addEventListener("submit", async event => {
+      event.preventDefault();
+
+      const email = document.getElementById("resetEmail").value.trim();
+      const otp = document.getElementById("otp").value.trim();
+      const password = document.getElementById("newPassword").value;
+      const confirm = document.getElementById("confirmPassword").value;
+      const message = document.getElementById("resetMessage");
+      const button = document.getElementById("resetButton");
+
+      message.classList.remove("success");
+
+      if (password !== confirm) {
+        message.textContent = "Passwords do not match.";
+        return;
+      }
+
+      if (password.length < 12) {
+        message.textContent = "Password must be at least 12 characters.";
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = "Resetting...";
+
+      try {
+        const result = await postData("/api/auth/reset-password", {
+          email,
+          otp,
+          newPassword: password
+        });
+
+        message.textContent = result.message;
+        message.classList.add("success");
+
+        document.getElementById("resetForm").reset();
+
+        setTimeout(() => showSection("loginSection"), 2000);
+      } catch (error) {
+        message.textContent = error.message;
+      } finally {
+        button.disabled = false;
+        button.textContent = "Reset Password";
       }
     });
   </script>

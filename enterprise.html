@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enterprise HRMS | EmployeeHub</title>
+<style>
+:root{--navy:#111c3a;--blue:#315bea;--bg:#f4f6fb;--line:#e6eaf2;--text:#172033;--muted:#667085;--white:#fff;--green:#16865a;--red:#c43c4b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.shell{min-height:100vh;display:grid;grid-template-columns:245px 1fr}.side{background:var(--navy);color:#fff;padding:24px 16px}.brand{font-size:21px;font-weight:800;margin:4px 8px 5px}.sub{color:#aab5d0;font-size:12px;margin:0 8px 28px}.side h4{font-size:10px;letter-spacing:1.4px;color:#94a3c4;margin:24px 10px 9px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#d7def0;text-align:left;padding:11px 12px;border-radius:9px;font-size:13px;cursor:pointer}.nav button:hover,.nav button.active{background:#25365f;color:#fff}.main{min-width:0;padding:24px 30px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:25px}.crumb{color:var(--muted);font-size:13px}.topright{display:flex;align-items:center;gap:10px;color:var(--muted)}button,.btn{cursor:pointer}.btn{border:0;background:var(--blue);color:#fff;border-radius:9px;padding:10px 14px;font-weight:650}.btn.secondary{background:#edf1ff;color:#2746b7}.btn.danger{background:#fff0f1;color:var(--red)}h1{font-size:27px;margin:0 0 7px}p.desc{color:var(--muted);margin:0 0 22px}.notice{display:none;padding:11px 14px;border-radius:9px;margin:0 0 15px}.notice.show{display:block}.notice.success{background:#e9f8f0;color:#146c43}.notice.error{background:#fff0f1;color:#a12c3b}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.stat,.panel{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;font-size:25px;margin-top:8px}.panel{margin-bottom:17px}.panel h2{font-size:16px;margin:0 0 16px}.formgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.field label{display:block;font-size:12px;color:#4d5870;font-weight:650;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid #dce2ed;border-radius:8px;padding:10px 11px;background:#fff;color:var(--text);font:inherit;min-height:40px}.field textarea{min-height:78px;resize:vertical}.field.full{grid-column:1/-1}.actions{display:flex;gap:8px;margin-top:15px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:720px}th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top;font-size:12px}th{color:#68748c;font-size:10px;text-transform:uppercase;letter-spacing:.7px;background:#fafbfe}td{max-width:300px;overflow-wrap:anywhere}.pill{display:inline-block;padding:4px 8px;border-radius:20px;background:#edf1ff;color:#304cb0;font-size:11px}.empty{padding:30px;text-align:center;color:var(--muted)}.hidden{display:none!important}.helper{font-size:12px;color:var(--muted);margin-top:9px}.rowactions{display:flex;gap:5px}.rowactions button{padding:6px 8px;font-size:11px;border-radius:7px;border:0}.mobilehead{display:none}
+@media(max-width:950px){.shell{grid-template-columns:1fr}.side{padding:14px}.brand{display:inline-block}.sub{display:inline-block;margin:0 0 0 8px}.side h4{display:none}.nav{display:flex;overflow:auto;margin-top:12px}.nav button{white-space:nowrap}.main{padding:18px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.formgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.top{align-items:flex-start;flex-direction:column}.formgrid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.main{padding:14px}.stat,.panel{padding:14px}}
+
+/* EmployeeHub 4.0 visual refinement */
+body{letter-spacing:-.01em}
+.side,.sidebar{box-shadow:8px 0 28px rgba(15,23,42,.075);overflow-y:auto}
+.brand{letter-spacing:-.65px}
+.nav{gap:6px}
+.nav button{transition:background .18s ease,transform .18s ease}
+.nav button:hover{transform:translateX(2px)}
+.workspace-links{display:grid;gap:7px;margin:22px 0 15px}
+.workspace-links .group-label{padding:8px 12px 2px;color:#91a2c2;font-size:10px;font-weight:800;letter-spacing:1.3px}
+.workspace-links a{display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:9px;color:#d7e1f2;text-decoration:none;font-size:13px;font-weight:650;transition:.18s}
+.workspace-links a:hover,.workspace-links a.current{background:#263958;color:white}
+.top{position:sticky;top:0;z-index:4;backdrop-filter:blur(14px);box-shadow:0 3px 14px rgba(15,23,42,.035)}
+.content,.main{max-width:1600px}
+.stat,.card,.panel{border-radius:16px;box-shadow:0 5px 18px rgba(15,23,42,.035);transition:transform .18s ease,box-shadow .18s ease}
+.stat:hover,.card:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(15,23,42,.075)}
+button,.btn{transition:filter .15s ease,transform .15s ease}
+button:hover,.btn:hover{filter:brightness(.98)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#6b91ef!important;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+table{border-collapse:separate;border-spacing:0}
+th{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#64748b}
+td,th{padding:13px 14px}
+tbody tr:hover{background:#f8faff}
+@media(max-width:900px){.side,.sidebar{position:relative;box-shadow:none}.workspace-links{grid-template-columns:repeat(3,minmax(0,1fr))}.workspace-links .group-label{grid-column:1/-1}.top{position:relative}}
+@media(max-width:560px){.workspace-links{grid-template-columns:repeat(2,minmax(0,1fr))}.top{flex-wrap:wrap}.main{padding:14px}.content{padding:15px}}
+
+
+/* EmployeeHub Professional UI refinement */
+:root{--surface:#fff;--surface-soft:#f8faff;--line-soft:#e7edf5;--shadow-soft:0 8px 26px rgba(20,33,61,.055)}
+html{scroll-behavior:smooth}
+body{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility }
+.sidebar,.side{box-shadow:8px 0 28px rgba(15,23,42,.07)}
+.brand-name,.brand{letter-spacing:-.45px}
+.nav-link,.nav button{transition:background .18s ease,color .18s ease,transform .18s ease}
+.nav-link:hover,.nav button:hover{transform:translateX(2px)}
+.main{min-width:0}
+.topbar,.top{background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft);box-shadow:0 3px 16px rgba(15,23,42,.025)}
+.breadcrumb,.crumb{font-weight:500}
+.page,.content,.main{min-width:0}
+.page-heading,.heading{gap:16px}
+.page-heading h1,.heading h1,h1{font-weight:760;letter-spacing:-.8px}
+.page-heading p,.heading p,.desc{line-height:1.55}
+.stat-card,.stat,.card,.panel{border:1px solid var(--line-soft);box-shadow:var(--shadow-soft);border-radius:15px}
+.stat-card,.stat,.card{transition:transform .18s ease,box-shadow .18s ease}
+.stat-card:hover,.stat:hover,.card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(20,33,61,.09)}
+.panel{overflow:hidden}
+.panel-header{border-bottom:1px solid #edf1f6}
+input,select,textarea{border-color:#d9e1ec!important;border-radius:9px!important}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#7b9cf0!important;box-shadow:0 0 0 3px rgba(37,99,235,.12)!important}
+button,.btn{border-radius:9px;transition:filter .15s ease,transform .15s ease,box-shadow .15s ease}
+button:hover,.btn:hover{filter:brightness(.985)}
+.btn-primary,.btn:not(.secondary):not(.danger):not(.light):not(.red){box-shadow:0 3px 8px rgba(37,99,235,.12)}
+table{border-collapse:separate;border-spacing:0}
+thead th{color:#64748b;font-size:11px;letter-spacing:.075em;text-transform:uppercase;background:#f8faff}
+tbody tr:hover{background:#f8faff}
+.badge,.pill{font-weight:650}
+.empty,.empty-state{border:1px dashed #dce4ef;border-radius:12px;background:#fbfcfe}
+.workspace-links a{transition:background .18s ease,color .18s ease}
+@media(max-width:900px){.sidebar,.side{box-shadow:none}.topbar,.top{position:relative}}
+@media(max-width:650px){.content,.page{padding:18px 14px}.top{padding:14px 16px;flex-wrap:wrap}.grid,.cards,.stats,.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.formgrid,.form-grid{grid-template-columns:1fr}}
+@media(max-width:430px){.grid,.cards,.stats,.stats-grid{grid-template-columns:1fr}.heading{flex-direction:column}}
+
+</style></head>
+<body><div class="shell"><aside class="side"><div class="brand">EmployeeHub</div><div class="sub">Enterprise HRMS</div><h4>WORKSPACE</h4><nav class="nav" id="nav">
+<button data-module="overview" class="active">▦ &nbsp; Overview</button><button data-module="payroll">₹ &nbsp; Payroll</button><button data-module="performance">★ &nbsp; Performance</button><button data-module="openings">▤ &nbsp; Recruitment</button><button data-module="applications">♙ &nbsp; Applications</button><button data-module="shifts">◷ &nbsp; Shift schedule</button><button data-module="courses">▣ &nbsp; Training courses</button><button data-module="enrollments">✓ &nbsp; Enrollments</button><button data-module="expenses">₹ &nbsp; Expenses</button><button data-module="policies">▧ &nbsp; Policies</button><button data-module="offboarding">⇥ &nbsp; Offboarding</button><button data-module="announcements">◉ &nbsp; Announcements</button><button data-module="events">▦ &nbsp; Calendar</button>
+</nav><h4>MAIN APP</h4><nav class="nav workspace-links"><div class="group-label">MAIN WORKSPACES</div><button onclick="location.href='/'">← &nbsp; Main dashboard</button><button onclick="location.href='/operations'">▣ &nbsp; HR Operations</button><button onclick="location.href='/people'">♙ &nbsp; People & AI Workspace</button></nav></aside>
+<main class="main"><div class="top"><div class="crumb">EmployeeHub / <strong id="crumb">Enterprise HRMS</strong></div><div class="topright"><span id="userInfo"></span><button class="btn secondary" id="refresh">Refresh</button><button class="btn danger" id="logout">Log out</button></div></div><div id="notice" class="notice"></div><h1 id="title">Enterprise HRMS overview</h1><p class="desc" id="desc">Manage the complete employee lifecycle from one workspace.</p><section id="overview" class="stats"></section><section id="modulePanel" class="hidden"><div class="panel"><h2 id="formTitle">Add record</h2><form id="recordForm"><div id="fields" class="formgrid"></div><div class="actions"><button class="btn" type="submit" id="saveBtn">Save record</button><button class="btn secondary" type="button" id="cancelEdit">Clear</button></div><div class="helper" id="formHelp"></div></form></div><div class="panel"><h2 id="tableTitle">Records</h2><div id="table" class="tablewrap"></div></div></section></main></div>
+<script>
+let csrf=null,user=null,current='overview',records=[],editing=null,employees=[],courses=[],openings=[];const $=id=>document.getElementById(id);const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const configs={
+ payroll:{title:'Payroll management',desc:'Maintain monthly salary records and payment status. This is a payroll register, not a bank payment integration.',table:'Payroll records',fields:[['employee_id','Employee','employee'],['pay_period','Pay period','month'],['basic_salary','Basic salary (₹)','number'],['allowances','Allowances (₹)','number'],['deductions','Deductions (₹)','number'],['payment_status','Payment status','select',['Draft','Approved','Paid','On Hold']],['payment_date','Payment date','date'],['notes','Notes','text']],cols:['employee_name','pay_period','basic_salary','allowances','deductions','net_salary','payment_status','payment_date'],labels:['Employee','Period','Basic ₹','Allowances ₹','Deductions ₹','Net salary ₹','Status','Payment date'],help:'Net salary is calculated automatically: basic salary + allowances − deductions.'},
+ performance:{title:'Performance management',desc:'Record review cycles, employee goals, feedback and ratings.',table:'Performance reviews',fields:[['employee_id','Employee','employee'],['reviewer','Reviewer','text'],['review_period','Review period','text'],['rating','Rating (1–5)','number'],['goals','Goals','textarea'],['feedback','Feedback','textarea'],['status','Review status','select',['Draft','Shared','Acknowledged']]],cols:['employee_name','reviewer','review_period','rating','status','goals','feedback'],labels:['Employee','Reviewer','Period','Rating','Status','Goals','Feedback']},
+ openings:{title:'Recruitment management',desc:'Create and manage approved job openings.',table:'Job openings',fields:[['title','Job title','text'],['department','Department','text'],['location','Location','text'],['employment_type','Employment type','select',['Full-time','Part-time','Contract','Internship']],['openings','Number of openings','number'],['status','Status','select',['Draft','Open','On Hold','Closed']],['description','Job description','textarea']],cols:['title','department','location','employment_type','openings','status','description'],labels:['Job title','Department','Location','Type','Openings','Status','Description']},
+ applications:{title:'Candidate applications',desc:'Track candidates through the recruitment pipeline.',table:'Applications',fields:[['opening_id','Job opening','opening'],['candidate_name','Candidate name','text'],['email','Email','email'],['phone','Phone','text'],['stage','Pipeline stage','select',['Applied','Screening','Interview','Offer','Hired','Rejected']],['notes','Notes','textarea']],cols:['candidate_name','opening_title','email','phone','stage','notes'],labels:['Candidate','Job opening','Email','Phone','Stage','Notes']},
+ shifts:{title:'Shift management',desc:'Plan employee shifts and working hours.',table:'Shift schedules',fields:[['employee_id','Employee','employee'],['shift_date','Shift date','date'],['shift_name','Shift name','select',['General','Morning','Afternoon','Night','Flexible']],['start_time','Start time','time'],['end_time','End time','time'],['notes','Notes','text']],cols:['employee_name','shift_date','shift_name','start_time','end_time','notes'],labels:['Employee','Date','Shift','Start','End','Notes']},
+ courses:{title:'Training management',desc:'Maintain the company learning catalogue.',table:'Training courses',fields:[['title','Course title','text'],['provider','Provider','text'],['category','Category','text'],['duration_hours','Duration (hours)','number'],['description','Description','textarea']],cols:['title','provider','category','duration_hours','description'],labels:['Course','Provider','Category','Hours','Description']},
+ enrollments:{title:'Training enrollments',desc:'Enroll employees in courses and track completion.',table:'Course enrollments',fields:[['employee_id','Employee','employee'],['course_id','Training course','course'],['status','Status','select',['Enrolled','In Progress','Completed','Withdrawn']],['completion_date','Completion date','date'],['notes','Notes','text']],cols:['employee_name','course_title','status','completion_date','notes'],labels:['Employee','Course','Status','Completion date','Notes']},
+ expenses:{title:'Expense reimbursement',desc:'Record employee claims and approval status. This does not initiate bank transfers.',table:'Expense claims',fields:[['employee_id','Employee','employee'],['category','Category','select',['Travel','Meals','Equipment','Internet','Training','Other']],['amount','Amount (₹)','number'],['expense_date','Expense date','date'],['description','Description','textarea'],['status','Status','select',['Submitted','Under Review','Approved','Rejected','Reimbursed']],['reviewer_notes','Reviewer notes','text']],cols:['employee_name','category','amount','expense_date','description','status','reviewer_notes'],labels:['Employee','Category','Amount ₹','Date','Description','Status','Reviewer notes']},
+ policies:{title:'Policy management',desc:'Publish and maintain company policy records and versions.',table:'Company policies',fields:[['title','Policy title','text'],['category','Category','text'],['version','Version','text'],['effective_date','Effective date','date'],['status','Status','select',['Draft','Active','Archived']],['content','Policy summary / content','textarea']],cols:['title','category','version','effective_date','status','content'],labels:['Policy','Category','Version','Effective date','Status','Content']},
+ offboarding:{title:'Employee offboarding',desc:'Track exit tasks and handover activities for departing employees.',table:'Offboarding tasks',fields:[['employee_id','Employee','employee'],['last_working_day','Last working day','date'],['reason','Exit reason','select',['Resignation','Retirement','End of contract','Other']],['task_title','Exit task','text'],['owner','Task owner','text'],['status','Status','select',['Pending','In Progress','Completed']],['notes','Notes','textarea']],cols:['employee_name','last_working_day','reason','task_title','owner','status','notes'],labels:['Employee','Last day','Reason','Task','Owner','Status','Notes']},
+ announcements:{title:'Company announcements',desc:'Publish internal notices for employees or selected audiences.',table:'Announcements',fields:[['title','Title','text'],['message','Message','textarea'],['audience','Audience','select',['Everyone','HR','Engineering','Finance','Managers']],['publish_date','Publish date','date'],['expires_on','Expiry date','date'],['status','Status','select',['Draft','Published','Archived']]],cols:['title','audience','publish_date','expires_on','status','message'],labels:['Title','Audience','Publish date','Expiry','Status','Message']},
+ events:{title:'Company calendar',desc:'Schedule company events, holidays, reviews and meetings.',table:'Calendar events',fields:[['title','Event title','text'],['event_date','Event date','date'],['start_time','Start time','time'],['end_time','End time','time'],['category','Category','select',['Company','Holiday','Meeting','Training','Review','Other']],['description','Description','textarea']],cols:['title','event_date','start_time','end_time','category','description'],labels:['Event','Date','Start','End','Category','Description']}
+};
+async function token(force=false){if(force)csrf=null;if(!csrf){const r=await fetch('/api/auth/csrf',{credentials:'same-origin',cache:'no-store'});if(r.status===401){location.replace('/login');throw Error('Please sign in again.')}if(!r.ok)throw Error('Could not verify your session. Refresh the page and try again.');csrf=(await r.json()).csrfToken;if(!csrf)throw Error('Security token unavailable. Refresh the page and try again.')}return csrf}
+async function api(url,opt={}){const method=(opt.method||'GET').toUpperCase();let attempt=0;while(true){const headers={...(opt.headers||{})};if(!['GET','HEAD','OPTIONS'].includes(method))headers['X-CSRF-Token']=await token(attempt>0);const r=await fetch(url,{...opt,method,headers,credentials:'same-origin'});if(r.status===401){location.replace('/login');throw Error('Session expired. Please sign in again.')}if(r.status===403&&attempt===0){let d={};try{d=await r.clone().json()}catch{}if(String(d.error||'').toLowerCase().includes('security token')){attempt++;continue}}if(!r.ok){let d={};try{d=await r.json()}catch{}throw Error(d.error||`Request failed (${r.status})`)}return r.status===204?{}:r.json()}}
+function note(msg,type='success'){const n=$('notice');n.textContent=msg;n.className='notice show '+type;setTimeout(()=>n.classList.remove('show'),4500)}function formData(){return Object.fromEntries(new FormData($('recordForm')).entries())}
+function inputFor(f){const [name,label,type,opts]=f;let html='';if(type==='employee'||type==='course'||type==='opening'){let arr=type==='employee'?employees:type==='course'?courses:openings;let id=type==='employee'?'id': 'id';html=`<select name="${name}" ${name==='opening_id'?'':'required'}><option value="">${type==='employee'?'Choose employee':type==='course'?'Choose course':'No opening selected'}</option>${arr.map(x=>`<option value="${x[id]}">${esc(type==='employee'?x.name:type==='course'?x.title:x.title)}</option>`).join('')}</select>`}else if(type==='select'){html=`<select name="${name}" required>${opts.map(o=>`<option>${esc(o)}</option>`).join('')}</select>`}else if(type==='textarea'){html=`<textarea name="${name}" ${name==='content'||name==='goals'||name==='feedback'||name==='description'||name==='message'?'':'maxlength="500"'}></textarea>`}else{html=`<input name="${name}" type="${type}" ${type==='number'?(name==='rating'?'min="1" max="5" step="1"':'min="0" step="0.01"'):''} ${['text','email'].includes(type)?'maxlength="500"':''} ${['month','date','time','number','email'].includes(type)?'':''} ${['employee_id','pay_period','basic_salary','amount','shift_date','shift_name','start_time','end_time','title','department','candidate_name','review_period','rating','last_working_day','task_title','event_date','publish_date','openings'].includes(name)?'required':''}>`}return `<div class="field ${type==='textarea'?'full':''}"><label>${esc(label)}</label>${html}</div>`}
+function resetForm(){editing=null;$('recordForm').reset();$('formTitle').textContent='Add '+configs[current].table.toLowerCase().replace(/s$/,'');$('saveBtn').textContent='Save record'}
+function renderTable(cfg){if(!records.length){$('table').innerHTML='<div class="empty">No records found. Add your first record above.</div>';return}const cols=cfg.cols;$('table').innerHTML='<table><thead><tr>'+cfg.labels.map(x=>`<th>${esc(x)}</th>`).join('')+(user.role==='viewer'?'':'<th>Actions</th>')+'</tr></thead><tbody>'+records.map(r=>`<tr>${cols.map(c=>`<td>${esc(r[c]??'—')}</td>`).join('')}${user.role==='viewer'?'':`<td><div class="rowactions"><button class="btn secondary" data-edit="${r.id}">Edit</button><button class="btn danger" data-delete="${r.id}">Delete</button></div></td>`}</tr>`).join('')+'</tbody></table>'}
+async function loadModule(){const cfg=configs[current];records=await api('/api/enterprise/'+current);renderTable(cfg)}
+async function showModule(name){current=name;document.querySelectorAll('[data-module]').forEach(b=>b.classList.toggle('active',b.dataset.module===name));$('crumb').textContent=name==='overview'?'Enterprise HRMS':configs[name].title;$('title').textContent=name==='overview'?'Enterprise HRMS overview':configs[name].title;$('desc').textContent=name==='overview'?'Manage the employee lifecycle, people operations and company administration.':configs[name].desc;$('overview').classList.toggle('hidden',name!=='overview');$('modulePanel').classList.toggle('hidden',name==='overview');if(name==='overview'){await loadOverview();return}const cfg=configs[name];$('tableTitle').textContent=cfg.table;$('fields').innerHTML=cfg.fields.map(inputFor).join('');$('formHelp').textContent=cfg.help||'Changes are saved to your local EmployeeHub database.';resetForm();await loadModule()}
+async function loadOverview(){const allowed=Object.keys(configs).filter(k=>!(user.role==='viewer'&&['payroll','expenses','applications'].includes(k)));const counts=await Promise.all(allowed.map(k=>api('/api/enterprise/'+k).then(a=>[k,a.length])));const m=Object.fromEntries(counts);$('overview').innerHTML=[['Payroll records',m.payroll],['Performance reviews',m.performance],['Openings',m.openings],['Applications',m.applications],['Shift records',m.shifts],['Training courses',m.courses],['Expense claims',m.expenses],['Company events',m.events]].filter(([k])=>!(user.role==='viewer'&&['Payroll records','Applications','Expense claims'].includes(k))).map(([k,v])=>`<div class="stat"><span>${k}</span><strong>${v}</strong></div>`).join('')}
+$('nav').addEventListener('click',e=>{const b=e.target.closest('[data-module]');if(b)showModule(b.dataset.module).catch(x=>note(x.message,'error'))});$('recordForm').addEventListener('submit',async e=>{e.preventDefault();try{const data=formData();for(const k of Object.keys(data))if(data[k]==='')delete data[k];await api('/api/enterprise/'+current+(editing?'/'+editing:''),{method:editing?'PUT':'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});note(editing?'Record updated.':'Record created.');resetForm();await loadModule()}catch(x){note(x.message,'error')}});$('cancelEdit').onclick=resetForm;
+$('table').addEventListener('click',async e=>{
+ const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');
+ if(edit){
+  try{
+   const id=String(edit.dataset.edit);
+   // Refresh from the server before editing so the form uses the current DB row.
+   records=await api('/api/enterprise/'+current);
+   const r=records.find(x=>String(x.id)===id);
+   if(!r){note('This record is no longer available. Refresh the module and try again.','error');return;}
+   editing=String(r.id);
+   $('formTitle').textContent='Edit record #'+r.id;
+   $('saveBtn').textContent='Update record';
+   for(const f of configs[current].fields){const el=$('recordForm').elements[f[0]];if(el)el.value=r[f[0]]??'';}
+   window.scrollTo({top:0,behavior:'smooth'});
+  }catch(x){note(x.message,'error');}
+  return;
+ }
+ if(del){
+  const id=String(del.dataset.delete);
+  if(!confirm('Delete this record? This cannot be undone.'))return;
+  try{
+   // Confirm the ID still exists in the live list before sending DELETE.
+   records=await api('/api/enterprise/'+current);
+   if(!records.some(x=>String(x.id)===id)){note('This record is no longer in the database. The list has been refreshed.','error');renderTable(configs[current]);return;}
+   await api('/api/enterprise/'+current+'/'+encodeURIComponent(id),{method:'DELETE'});
+   note('Record deleted.');
+   await loadModule();
+  }catch(x){note(x.message,'error');}
+ }
+});
+$('refresh').onclick=()=>{(current==='overview'?loadOverview():loadModule()).catch(x=>note(x.message,'error'))};$('logout').onclick=async()=>{if(!confirm('Log out of EmployeeHub?'))return;try{await api('/api/auth/logout',{method:'POST'})}catch{}location.replace('/login')};
+(async()=>{try{const r=await fetch('/api/auth/me');if(!r.ok)return location.replace('/login');user=await r.json();$('userInfo').textContent=user.username+' · '+user.role;employees=await api('/api/employees');courses=await api('/api/enterprise/courses');openings=await api('/api/enterprise/openings');if(user.role==='viewer'){$('recordForm').closest('.panel').classList.add('hidden');document.querySelectorAll('[data-module="payroll"],[data-module="expenses"],[data-module="applications"]').forEach(x=>x.classList.add('hidden'))}await showModule('overview')}catch(e){note(e.message,'error')}})();
+</script></body></html>
