@@ -1388,6 +1388,7 @@ app.use((req, res) => {
 });
 
 // Start server
-app.listen(PORT, '127.0.0.1', () => {
-  console.log(`Employee Management System running at http://localhost:${PORT}`);
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`EmployeeHub is running on port ${PORT}`);
 });
